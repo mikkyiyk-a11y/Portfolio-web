@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- "Mobile-friendly interface" -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/icon-bold.png">
+  <!-- PAGE TITTLE -->
+  <title>Contact | IKechukwu Michael</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+  <!-- "External CSS stylesheet" -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION MENU (same on every page) -->
+  <header class="navbar">
+    <nav class="container">
+      <!-- LOGO SECCTION -->
+      <a href="index.html" class="logo">Ikechukwu Michael<span></span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container fade-up">
+        <span class="label">Say hello</span>
+        <h1>Contact Me</h1>
+        <p>I'll Like To Hear From You.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+
+        <!-- Contact details on the left -->
+        <aside>
+          <h2 class="section-title">Let's talk</h2>
+          <p>I reply in real time <time datetime=""></time></p>
+          <br>
+          <!-- My email, phone and location -->
+          <ul class="contact-info">
+            <li><strong>Email:</strong> <a href="mailto:youremail@example.com">mikkyiyk@gmail.com</a></li>
+            <li><strong>Phone:</strong> 07031336844</li>
+            <li><strong>Location:</strong> Jos, Nigeria</li>
+          </ul>
+        </aside>
+
+
+        <!-- CONTACT FORM SECTION
+             "Contact Page" form with Name, Email Address, Phone Number, Message
+             "Forms"
+
+             "novalidate" turns off the browser's own checking so that
+             JavaScript (js/contact.js) does the validation instead. -->
+        <div class="card">
+          <!-- Green success box, hidden until the form is filled correctly -->
+          <div class="success-msg" id="successMsg">
+            Thank you! Your message has been sent.
+          </div>
+
+          <form id="contactForm" novalidate>
+
+            <!-- NAME -->
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Your full name">
+              <!-- JavaScript puts the error text inside this span -->
+              <span class="error" id="nameError"></span>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@example.com">
+              <span class="error" id="emailError"></span>
+            </div>
+
+            <!-- PHONE -->
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="Digits Only">
+              <span class="error" id="phoneError"></span>
+            </div>
+
+            <!-- MESSAGE -->
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Write your message here..."></textarea>
+              <span class="error" id="messageError"></span>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <!--  This Section contains my links to github and linkedin -->
+      <p>&copy; <!--<span id="year"></span>-->Mikkyiyk concepts. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ikechukwu-david-a4838244a" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!--  Having JavaScript here ensures real-time execution of codes. -->
+  <script src="js/contact.js"></script>
+</body>
+</html>

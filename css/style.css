@@ -1,0 +1,798 @@
+/* =========================================================
+   STYLE.CSS - the one stylesheet for the whole website
+
+   PDF REQUIREMENT: "External CSS stylesheet"
+   -> Every page links to this file with:
+      <link rel="stylesheet" href="css/style.css">
+      so there is no CSS written inside the HTML pages.
+
+   HOW THIS FILE IS ARRANGED (scroll down in this order):
+     1. Colours and fonts (the colour scheme)
+     2. Basic reset and page setup
+     3. Navigation bar
+     4. Buttons
+     5. Page sections and headings
+     6. Homepage (hero)
+     7. About page
+     8. Projects page
+     9. Planner page
+    10. Contact page
+    11. Footer
+    12. Animations
+    13. Responsive / mobile styles
+
+   TIP: search for "PDF REQUIREMENT" to see every requirement
+        that has been met in this file.
+   ========================================================= */
+
+
+/* =========================================================
+   1. COLOURS AND FONTS
+
+   PDF REQUIREMENT: "Consistent colour scheme"
+   -> All the colours used on the site are saved here ONCE as
+      variables. Every other rule uses var(--name) so the whole
+      site always matches.
+
+   EDIT ME: want different colours? Change them here and the
+            whole website updates.
+   ========================================================= */
+:root {
+  --ink: #1f2a37;          /* dark navy - main text and nav bar */
+  --ink-soft: #4b5563;     /* grey - paragraphs */
+  --cream: #faf7f2;        /* warm off-white - page background */
+  --white: #ffffff;        /* cards and boxes */
+  --accent: #b5835a;       /* warm bronze - buttons and highlights */
+  --accent-dark: #8f6440;  /* darker bronze - button hover */
+  --line: #e7e1d8;         /* soft borders */
+  --success: #3f7d5c;      /* green - completed tasks, success messages */
+  --error: #b54848;        /* red - error messages, delete button */
+
+  --heading-font: "Lora", Georgia, serif;       /* elegant serif for titles */
+  --body-font: "Inter", Arial, sans-serif;      /* clean font for text */
+
+  --radius: 10px;                                 /* rounded corners */
+  --shadow: 0 4px 18px rgba(31, 42, 55, 0.08);    /* soft shadow on cards */
+}
+
+
+/* =========================================================
+   2. BASIC RESET AND PAGE SETUP
+   ========================================================= */
+
+/* Make padding and borders part of an element's width (easier sizing) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* PDF REQUIREMENT: "Responsive design" (part 1)
+   -> Images never grow wider than their box, so they shrink on small screens */
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+p {
+  color: var(--ink-soft);
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+/* Keeps content in the middle of the page with space on the sides */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   3. NAVIGATION BAR
+
+   PDF REQUIREMENT: "Navigation styling"
+   -> The menu at the top of every page is styled here.
+
+   PDF REQUIREMENT: "Flexbox" (used here)
+   -> display: flex puts the logo on the left and the links on
+      the right, in one neat row.
+   ========================================================= */
+.navbar {
+  background-color: var(--ink);
+  position: sticky;      /* the nav stays at the top when you scroll */
+  top: 0;
+  z-index: 100;          /* keeps the nav above everything else */
+}
+
+.navbar .container {
+  display: flex;                    /* FLEXBOX */
+  justify-content: space-between;   /* logo left, links right */
+  align-items: center;              /* centres them up and down */
+  padding: 16px 0;
+}
+
+/* The name / logo on the left of the nav */
+.logo {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent);   /* makes the dot after the name bronze */
+}
+
+/* The list of links */
+.nav-links {
+  display: flex;      /* FLEXBOX - puts the links side by side */
+  gap: 28px;          /* space between each link */
+  list-style: none;   /* removes the bullet points */
+}
+
+.nav-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+
+  /* PDF REQUIREMENT: "Animations or transitions"
+     -> the colour and underline fade in smoothly on hover */
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* When you hover over a link, or it is the page you are on */
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--white);
+  border-bottom-color: var(--accent);
+}
+
+/* The "☰" menu button - hidden on big screens, shown on phones
+   (see section 13 at the bottom) */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   4. BUTTONS
+   ========================================================= */
+.btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 12px 26px;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  /* PDF REQUIREMENT: "Animations or transitions"
+     -> the button smoothly changes colour and lifts up on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-2px);   /* lifts the button up by 2px */
+}
+
+/* A second button style with just an outline */
+.btn-outline {
+  background-color: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.btn-outline:hover {
+  background-color: var(--ink);
+  color: var(--white);
+}
+
+
+/* =========================================================
+   5. PAGE SECTIONS AND HEADINGS
+   ========================================================= */
+.section {
+  padding: 70px 0;
+}
+
+/* The banner at the top of the inside pages (About, Projects...) */
+.page-header {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 60px 0 50px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.4rem;
+}
+
+.page-header p {
+  max-width: 560px;
+  margin: 10px auto 0;
+}
+
+/* Small bronze label above headings, e.g. "WELCOME" */
+.label {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* A white box used all over the site */
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   6. HOMEPAGE (HERO)
+
+   PDF REQUIREMENT: "Professional-looking layout" (homepage)
+   PDF REQUIREMENT: "CSS Grid" (used here)
+   -> The hero is split into 2 columns: text on the left,
+      photo on the right.
+   ========================================================= */
+.hero {
+  padding: 90px 0;
+}
+
+.hero .container {
+  display: grid;                      /* CSS GRID */
+  grid-template-columns: 1.2fr 1fr;   /* left column a bit wider */
+  gap: 60px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: var(--accent);   /* colours your name bronze */
+}
+
+.hero p {
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+  max-width: 520px;
+}
+
+/* The greeting like "Good morning" that JavaScript fills in */
+#greeting {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.hero-buttons {
+  display: flex;   /* FLEXBOX - buttons side by side */
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* The profile photo frame */
+.hero-photo img {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;     /* keeps the photo a portrait shape */
+  object-fit: cover;       /* crops the photo neatly, no stretching */
+  border-radius: var(--radius);
+  box-shadow: 18px 18px 0 var(--accent);  /* the bronze block behind the photo */
+  margin-left: auto;
+}
+
+/* Brief biography box on the homepage */
+.bio {
+  display: grid;                    /* CSS GRID */
+  grid-template-columns: 1fr 2fr;   /* title on left, text on right */
+  gap: 40px;
+}
+
+/* The three "quick facts" boxes under the bio */
+.facts {
+  display: grid;                           /* CSS GRID */
+  grid-template-columns: repeat(3, 1fr);   /* three equal columns */
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.fact h3 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   7. ABOUT PAGE
+   ========================================================= */
+
+/* Two boxes side by side (e.g. Career + Hobbies) */
+.two-col {
+  display: grid;                    /* CSS GRID */
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* PDF REQUIREMENT: "Tables" (styling for the education table) */
+table {
+  width: 100%;
+  border-collapse: collapse;   /* removes double borders */
+  background-color: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+th,
+td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  background-color: var(--ink);
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* Lets the table scroll sideways on small phones instead of breaking */
+.table-wrap {
+  overflow-x: auto;
+}
+
+/* Skill tags like "HTML", "CSS" */
+.skills {
+  display: flex;      /* FLEXBOX */
+  flex-wrap: wrap;    /* moves tags to a new line when there is no space */
+  gap: 12px;
+  list-style: none;
+}
+
+.skills li {
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease;  /* TRANSITION */
+}
+
+.skills li:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+/* Normal bullet lists (ul) and numbered lists (ol) inside cards */
+.card ul,
+.card ol {
+  padding-left: 20px;
+  color: var(--ink-soft);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+/* The audio box */
+.audio-box audio {
+  width: 100%;
+}
+
+
+/* =========================================================
+   8. PROJECTS PAGE
+
+   PDF REQUIREMENT: "CSS Grid" (project cards)
+   -> auto-fit makes 3 cards in a row on laptops, and fewer on
+      smaller screens, all by itself.
+   ========================================================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.project {
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+
+  /* PDF REQUIREMENT: "Animations or transitions"
+     -> the card lifts up when you hover over it */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(31, 42, 55, 0.14);
+}
+
+.project img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.project-body {
+  padding: 22px;
+}
+
+.project-body h3 {
+  margin-bottom: 8px;
+}
+
+/* The little "HTML · CSS" text under each project */
+.tools {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.project-links {
+  display: flex;   /* FLEXBOX */
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.project-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   9. PLANNER PAGE
+   ========================================================= */
+.planner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* The row with the input box, date and "Add" button */
+.task-form {
+  display: flex;   /* FLEXBOX */
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.task-form input[type="text"] {
+  flex: 1;          /* text box takes up all the spare space */
+  min-width: 200px;
+}
+
+/* "You have 3 tasks, 1 completed" line */
+.task-count {
+  font-size: 0.9rem;
+  margin: 18px 0 12px;
+}
+
+/* The list of tasks */
+#taskList {
+  list-style: none;
+}
+
+/* One task row */
+.task {
+  display: flex;   /* FLEXBOX - checkbox, text and button in a row */
+  align-items: center;
+  gap: 14px;
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 10px;
+
+  /* PDF REQUIREMENT: "Animations" -> each new task slides in
+     (the slideIn animation is written in section 12) */
+  animation: slideIn 0.35s ease;
+}
+
+.task input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--success);
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;   /* text takes the spare space so the button sits on the right */
+}
+
+.task-date {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+/* JavaScript adds the class "done" when a task is ticked */
+.task.done .task-text {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.task.done {
+  border-left: 4px solid var(--success);
+}
+
+.delete-btn {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--error);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;  /* TRANSITION */
+}
+
+.delete-btn:hover {
+  background-color: var(--error);
+  color: var(--white);
+}
+
+/* Shown when there are no tasks */
+.empty-msg {
+  text-align: center;
+  padding: 30px;
+  color: #9ca3af;
+}
+
+
+/* =========================================================
+   10. CONTACT PAGE (and all form boxes)
+   ========================================================= */
+.contact-layout {
+  display: grid;                    /* CSS GRID */
+  grid-template-columns: 1fr 1.6fr;
+  gap: 40px;
+}
+
+.contact-info li {
+  list-style: none;
+  margin-bottom: 14px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  background-color: var(--white);
+  transition: border-color 0.3s ease;   /* TRANSITION */
+}
+
+/* The task form inputs should not be full width */
+.task-form input {
+  width: auto;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* JavaScript adds the class "invalid" to a box that has an error */
+input.invalid,
+textarea.invalid {
+  border-color: var(--error);
+}
+
+/* The small red error text under each box (JavaScript fills it in) */
+.error {
+  display: block;
+  color: var(--error);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  min-height: 1em;
+}
+
+/* The green "message sent" box */
+.success-msg {
+  display: none;    /* hidden until JavaScript shows it */
+  background-color: #e8f3ec;
+  color: var(--success);
+  padding: 14px;
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   11. FOOTER
+   ========================================================= */
+footer {
+  background-color: var(--ink);
+  color: #9ca3af;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+footer p {
+  color: #9ca3af;
+}
+
+footer a {
+  color: var(--accent);
+  margin: 0 8px;
+}
+
+
+/* =========================================================
+   12. ANIMATIONS
+
+   PDF REQUIREMENT: "Animations or transitions"
+   -> @keyframes creates an animation we can reuse.
+   ========================================================= */
+
+/* Fades a thing in while moving it up a little */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slides a new task in from the left */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add class="fade-up" to anything in the HTML to animate it */
+.fade-up {
+  animation: fadeUp 0.8s ease both;
+}
+
+
+/* =========================================================
+   13. RESPONSIVE / MOBILE STYLES
+
+   PDF REQUIREMENT: "Responsive design"
+   PDF REQUIREMENT: "Mobile-friendly interface"
+   -> @media rules change the layout on smaller screens.
+      Two-column layouts become one column, and the nav
+      turns into a "☰" menu button.
+   ========================================================= */
+
+/* Tablets and small laptops (900px wide or less) */
+@media (max-width: 900px) {
+  .hero .container,
+  .bio,
+  .contact-layout {
+    grid-template-columns: 1fr;   /* one column instead of two */
+  }
+
+  .hero-photo img {
+    margin: 0 auto;   /* centre the photo */
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Phones (700px wide or less) */
+@media (max-width: 700px) {
+
+  /* Show the ☰ button */
+  .menu-btn {
+    display: block;
+  }
+
+  /* MOBILE NAVIGATION STYLING
+     -> The links are hidden and stack in a column.
+        main.js adds the class "open" when ☰ is clicked. */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;   /* stack links on top of each other */
+    gap: 0;
+    background-color: var(--ink);
+    padding: 10px 5%;
+  }
+
+  .nav-links.open {
+    display: flex;   /* show the menu when JavaScript adds "open" */
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .navbar .container {
+    position: relative;
+  }
+
+  .two-col,
+  .facts {
+    grid-template-columns: 1fr;   /* one column on phones */
+  }
+
+  .hero {
+    padding: 50px 0;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .page-header h1 {
+    font-size: 1.9rem;
+  }
+}

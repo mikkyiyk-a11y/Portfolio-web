@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- "Mobile-friendly section" -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/ICON-bold.png">
+  <!--PAGE TITTLE -->
+  <title>Academic Planner | Ikechukwu Michael</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+  <!-- "External CSS stylesheet" -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION MENU (same on every page) -->
+  <header class="navbar">
+    <nav class="container">
+      <!-- Logo Section -->
+      <a href="index.html" class="logo">Ikechukwu Michael<span></span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html" class="active">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container fade-up">
+        <span class="label">Stay organised</span>
+        <h1>Academic Planner</h1>
+        <p>Add your assignments and study tasks here.</p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         ACADEMIC PLANNER SECTION
+          "Academic Planner Page"
+          "Interactive task management system"
+           The add-task form
+
+         All the working parts are in js/planner.js
+         - Add tasks          -> the form below
+         - Mark as completed  -> the checkbox on each task
+         - Delete tasks       -> the Delete button on each task
+         ===================================================== -->
+    <section class="section">
+      <div class="container planner">
+        <div class="card">
+
+          <!-- The form to ADD a task -->
+          <form class="task-form" id="taskForm">
+            <input type="text" id="taskInput" placeholder="Start a task.">
+            <input type="date" id="taskDate">
+            <button type="submit" class="btn">Add Task</button>
+          </form>
+
+          <!-- Error message if the box is empty (planner.js fills it in) -->
+          <span class="error" id="taskError"></span>
+
+          <!--"Dynamic content updates"
+               This line changes every time you add, tick or delete a task -->
+          <p class="task-count" id="taskCount">You have 0 tasks</p>
+
+          <!--Task "Lists"
+               This list starts EMPTY. With planner.js I creates a new <li>
+               inside it for every task you add. -->
+          <ul id="taskList"></ul>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <!--This Section contains my links to github and linkedin -->
+      <p>&copy; <!--<span id="year"></span>--> Mikkyiyk. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ikechukwu-david-a4838244a" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!--  Having JavaScript here ensures real-time execution of codes. -->
+  <script src="js/planner.js"></script>
+</body>
+</html>

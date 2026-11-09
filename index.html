@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/ICON-bold.png">
+
+  <!-- PAGE TITLE -->
+  <title>Home | Ikechukwu Michael</title>
+
+  <!-- Fonts from Google (Lora for headings, Inter for text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION MENU
+       ===================================================== -->
+  <header class="navbar">
+    <nav class="container">
+      <!-- I USED MY NAME AS LOGO -->
+      <a href="index.html" class="logo">Ikechukwu Michael<span></span></a>
+
+      <!-- The ☰ button only shows on phones -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <!-- class="active" underlines the page you are on -->
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION (top of the homepage)
+         "Welcome message" -->
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="fade-up">
+          <span class="label">Welcome to my portfolio</span>
+
+          <!-- My name -->
+          
+          <h1>Hi, I'm <span>Ikechukwu Michael</span></h1>
+
+          <!--Welcome message  -->
+          <!-- The empty <span id="greeting"> gets filled by main.js with
+               "Good morning", "Good afternoon" or "Good evening" -->
+          <!-- EDIT ME: change the welcome text to your own words -->
+          <p>
+            <span id="greeting">Hello</span> and welcome! I am a Software engineering student
+            at Miva Open University.  I love digital tech skills. This website is where I share who I am,
+            the things I have built, and how I plan my studies.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="projects.html" class="btn">View My Projects</a>
+            <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+          </div>
+        </div>
+
+        <!--THE PHOTO ON MY HOMEPAGE -->
+
+        <div class="hero-photo fade-up">
+          <img src="images/Ike 2.png" alt="Ike 2.png">
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- BRIEF BIOGRAPHY -->
+         
+    <section class="section">
+      <div class="container">
+        <div class="bio card">
+          <div>
+            <span class="label">About me</span>
+            <h2 class="section-title">A short biography</h2>
+          </div>
+
+          <article>
+            <!--  About me  -->
+            <p>
+              I am a 100 level software engineering student who enjoys building things
+              for the web. I like turning ideas into simple, useful websites, and I
+              am currently learning HTML, CSS and JavaScript. I love and have enjoyed learning. However, I still have a lot to improve on.
+              The belief is that with dedication and continious learning, I can achieve my goals. Outside class I enjoy
+              reading, music and learning new tech skills.
+            </p>
+            <br>
+            <a href="about.html">Read more about me →</a>
+          </article>
+        </div>
+
+        <!-- Three quick facts -->
+        
+        <div class="facts">
+          <div class="card fact">
+            <h3>100L</h3>
+            <p>Current level</p>
+          </div>
+          <div class="card fact">
+            <h3>2</h3>
+            <p>Projects built</p>
+          </div>
+          <div class="card fact">
+            <h3>5</h3>
+            <p>Tech skills learning</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+      <!--  This Section contains my links to github and linkedin -->
+      <p>&copy; <!--<span id="year"></span>--> mikkyiyk. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ikechukwu-david-a4838244a" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for the menu, greeting and footer year -->
+  <script src="js/main.js"></script>
+</body>
+</html>

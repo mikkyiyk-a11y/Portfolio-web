@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- "Mobile-friendly interface" -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/ICON-bold.png">
+  <!-- PAGE TITTLE -->
+  <title>Projects | Ikechukwu Michael</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+  <!-- "External CSS stylesheet" -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION MENU (same on every page) -->
+  <header class="navbar">
+    <nav class="container">
+      <!-- LOGO SECTION -->
+      <a href="index.html" class="logo">Ikechukwu Michael<span></span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container fade-up">
+        <span class="label">My work</span>
+        <h1>Projects</h1>
+        <p>A few things I have built while learning web development.</p>
+      </div>
+    </section>
+
+
+    <!--PROJECT CARDS -->
+
+    <section class="section">
+      <div class="container projects-grid">
+
+        <!-- ================= PROJECT 1 ================= -->
+        <article class="project">
+          <!-- SCREENSHOT OF MY PROJECTS GOES HERE -->
+
+          <img src="images/Home P.jpg" alt="Screenshot of the Student Portfolio website">
+
+          <div class="project-body">
+            <!-- project name, tools and description -->
+            <h3>Student Portfolio Website</h3>
+            <p class="tools">HTML · CSS · JavaScript</p>
+            <p>
+              This very website. A multi-page portfolio with a task planner
+              and a contact form that checks your details before sending.
+            </p>
+            <!-- project links -->
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub Code →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= PROJECT 2 ================= -->
+        <article class="project">
+          <!-- SCREENSHOT GOES HERE -->
+          <img src="images/GPA.png" alt="GPA">
+
+          <div class="project-body">
+            <h3>GPA Calculator</h3>
+            <p class="tools">HTML · CSS · JavaScript</p>
+            <p>
+              A simple tool where a student types in course units and grades,
+              and it works out their GPA straight away.
+            </p>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub Code →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= PROJECT 3 ================= -->
+        <article class="project">
+          <!--  SCREENSHOT GOES HERE -->
+          <img src="images/Atte.png" alt="Atte.png">
+
+          <div class="project-body">
+            <h3>Staff Attendance register</h3>
+            <p class="tools">HTML · CSS</p>
+            <p>
+              A responsive web page designed to monitor staffs' attendance and punctuality, with a
+              menu section, time-in, and time-out.
+            </p>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub Code →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <!-- This Section contains my links to github and linkedin -->
+      <p>&copy; <!--<span id="year"></span>--> Mikkyiyk. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ikechukwu-david-a4838244a" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

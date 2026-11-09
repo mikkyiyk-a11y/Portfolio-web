@@ -1,0 +1,7 @@
+<!-- Cover picture shown on the video player before it plays (see about.html). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#1f2a37"/>
+  <circle cx="640" cy="330" r="70" fill="none" stroke="#b5835a" stroke-width="6"/>
+  <path d="M620 295 L620 365 L675 330 Z" fill="#b5835a"/>
+  <text x="640" y="470" font-family="Arial" font-size="32" fill="#e7e1d8" text-anchor="middle">Add your video: media/intro.mp4</text>
+</svg>

@@ -1,0 +1,7 @@
+<!-- Placeholder photo. Replace it with your own picture (see index.html). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#e7e1d8"/>
+  <circle cx="200" cy="190" r="80" fill="#c9bfb1"/>
+  <path d="M60 470 C60 350 340 350 340 470 Z" fill="#c9bfb1"/>
+  <text x="200" y="40" font-family="Arial" font-size="20" fill="#8f6440" text-anchor="middle">Your photo here</text>
+</svg>

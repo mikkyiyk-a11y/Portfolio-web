@@ -1,0 +1,10 @@
+<!-- Placeholder screenshot. Replace it with your own project screenshots (see projects.html). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380">
+  <rect width="600" height="380" fill="#1f2a37"/>
+  <rect x="40" y="40" width="520" height="300" rx="10" fill="#faf7f2"/>
+  <rect x="40" y="40" width="520" height="36" rx="10" fill="#e7e1d8"/>
+  <circle cx="64" cy="58" r="6" fill="#b5835a"/>
+  <circle cx="84" cy="58" r="6" fill="#c9bfb1"/>
+  <circle cx="104" cy="58" r="6" fill="#c9bfb1"/>
+  <text x="300" y="220" font-family="Arial" font-size="24" fill="#8f6440" text-anchor="middle">Project screenshot here</text>
+</svg>

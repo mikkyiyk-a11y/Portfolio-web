@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--"Mobile-friendly interface" -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/ICON-bold.png">
+  <!-- PAGE TITLE -->
+  <title>About |Ikechukwu Michael</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+  <!--"External CSS stylesheet" -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION MENU (same on every page) -->
+  <!-- "Hyperlinks" and "Lists" -->
+  <header class="navbar">
+    <nav class="container">
+      <!-- LOGO SECTION -->
+      <a href="index.html" class="logo">Ikechukwu Michael<span></span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Page title banner -->
+    <section class="page-header">
+      <div class="container fade-up">
+        <span class="label">Get to know me</span>
+        <h1>About Me</h1>
+        <!-- one short line about yourself -->
+        <p>A little about my studies, my goals and what I enjoy doing.</p>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         EDUCATIONAL BACKGROUND
+         "Educational background"
+         "Tables" -> shown in a <table>
+         ===================================================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Educational Background</h2>
+
+        <div class="table-wrap">
+          <table>
+            <!-- <thead> = the heading row -->
+            <thead>
+              <tr>
+                <th>School</th>
+                <th>Qualification</th>
+                <th>Years</th>
+              </tr>
+            </thead>
+
+            <!-- <tbody> = the rows of information -->
+            <!-- SCHOOLS I ATTENDED -->
+            <tbody>
+              <tr>
+                <td>Miva Open University</td>
+                <td>B.Sc. Software engineering (in progress)</td>
+                <td>2025 – Present</td>
+              </tr>
+              <tr>
+                <td>Abia state polythecnic, Aba</td>
+                <td>(HND) Electrical and electronics engineering</td>
+                <td>2012 – 2014</td>
+              </tr>
+              <tr>
+                <td>Abia state polytechnic, Aba</td>
+                <td>(ND) Electrical and electronics engineering</td>
+                <td>2009 – 2011</td>
+
+              <tr>
+                <td>Chimtext Integrated Services, Aba</td>
+                <td>Certificate in indusrial control designs works. Installation and maintenance of industrial machineries</td>
+                <td>2012 - 20125</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         TECHNICAL SKILLS
+         "Technical skills"
+         "Lists" -> skills are in a <ul> list
+         ===================================================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+
+        <!-- MY SKILLS -->
+        <ul class="skills">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>Responsive Design</li>
+          <li>Industrial control designs</li>
+          <li>indusrial PLC controls configuration</li>
+          <li>Oracle Cloud Infrastructure AI</li>
+        </ul> 
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         CAREER ASPIRATIONS + HOBBIES (two boxes side by side)
+         "Career aspirations"
+         "Hobbies and interests"
+         ===================================================== -->
+    <section class="section">
+      <div class="container two-col">
+
+        <!-- "Career aspirations" -->
+        <article class="card">
+          <h3>Career Aspirations</h3>
+          <!--  MY ASPIRATIONS -->
+          <p>
+            I aspire to be a full-stack software engineer, bringing digital solutions 
+            to environmental and industrial problems.
+           </p>
+          
+          <br>
+          <p>MY IMMEDIATE GOALS:</p>
+          <br>
+          <!-- "Lists" -> ordered list <ol> -->
+          <ol>
+            <li>Proefficiency in front-end and back-end web development</li>
+            <li>Do an internship at a tech company</li>
+            <li>Build and launch my own product</li>
+          </ol>
+        </article>
+
+        <!-- "My Hobbies and interests" -->
+        <article class="card">
+          <h3>Hobbies &amp; Interests</h3>
+          <!--  my hobbies -->
+          <p>When I am not studying, I enjoy:</p>
+          <br>
+          <!-- "Lists" -> unordered list <ul> -->
+          <ul>
+            <li>Reading books and tech blogs</li>
+            <li>Listening to music</li>
+            <li>Playing football</li>
+            <li>Watching coding tutorials</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- 
+         AUDIO
+         "Multimedia (video or audio)" -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">A Short Introduction</h2>
+
+        <div class="card audio-box">
+          <!-- MY AUDIO IS HERE -->
+
+          <audio controls>
+            <source src="MY JOURNEY.m4a" type="audio/m4a">
+          
+          </audio>
+          <br>
+          <p>A short audio introduction where I talk about myself and my studies.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <!-- This Section contains my links to github and linkedin -->
+      <p>&copy; <!--<span id="year"></span>--> mikkyiyk concepts. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ikechukwu-david-a4838244a" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
