@@ -20,7 +20,6 @@ const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
 const messageInput = document.getElementById("message");
 const successMsg = document.getElementById("successMsg");
-const sendButton = contactForm.querySelector('button[type="submit"]');
 const errorTimers = new WeakMap();
 
 // Allow the user to enter numbers, but show an error for them.
@@ -70,7 +69,7 @@ function clearError(input) {
 
    "Event handling"
    --------------------------------------------------------- */
-contactForm.addEventListener("submit", async function (event) {
+contactForm.addEventListener("submit", function (event) {
   // Stop the page from refreshing
   event.preventDefault();
 
@@ -131,62 +130,9 @@ contactForm.addEventListener("submit", async function (event) {
 
 
   // ===== ALL CHECKS PASSED =====
-  if (!isValid) {
-    return;
-  }
-
-  // FormSubmit rejects submissions when the page is opened directly from disk.
-  if (window.location.protocol === "file:") {
-    successMsg.textContent = "FormSubmit requires this page to be opened through a web server. Use Live Server or the hosted website, then try again.";
-    successMsg.classList.add("delivery-error");
-    successMsg.style.display = "block";
-    return;
-  }
-
-  const originalButtonText = sendButton.textContent;
-  sendButton.disabled = true;
-  sendButton.textContent = "Sending...";
-
-  try {
-    const response = await fetch("https://formsubmit.co/ajax/mikkyiyk@gmail.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        name: nameInput.value.trim(),
-        email: emailInput.value.trim(),
-        phone: phoneInput.value.trim(),
-        message: messageInput.value.trim(),
-        _subject: "New message from your portfolio"
-      })
-    });
-    let result;
-    try {
-      result = await response.json();
-    } catch {
-      throw new Error(`The email service returned an unreadable response (HTTP ${response.status}).`);
-    }
-
-    if (!response.ok || (result.success !== true && result.success !== "true")) {
-      throw new Error(result.message || `The email service returned HTTP ${response.status} without accepting the message.`);
-    }
-
-    successMsg.textContent = "Thank you! Your message has been sent.";
-    successMsg.classList.remove("delivery-error");
-    successMsg.style.display = "block";
-    contactForm.reset();
-  } catch (error) {
-    if (error instanceof TypeError) {
-      successMsg.textContent = "Could not connect to the email service. Open this site through HTTP/HTTPS, check your connection, and confirm the inbox with FormSubmit.";
-    } else {
-      successMsg.textContent = `The email service rejected the message: ${error.message} Please try again or email mikkyiyk@gmail.com directly.`;
-    }
-    successMsg.classList.add("delivery-error");
-    successMsg.style.display = "block";
-  } finally {
-    sendButton.disabled = false;
-    sendButton.textContent = originalButtonText;
+  //  "Dynamic content updates" -> the success box appears
+  if (isValid) {
+    successMsg.style.display = "block";   // show the green box
+    contactForm.reset();                  // empty all the boxes
   }
 });
