@@ -135,6 +135,14 @@ contactForm.addEventListener("submit", async function (event) {
     return;
   }
 
+  // A normal form POST avoids fetch/CORS restrictions on file:// pages.
+  if (window.location.protocol === "file:") {
+    sendButton.disabled = true;
+    sendButton.textContent = "Sending...";
+    contactForm.submit();
+    return;
+  }
+
   const originalButtonText = sendButton.textContent;
   sendButton.disabled = true;
   sendButton.textContent = "Sending...";
@@ -165,7 +173,11 @@ contactForm.addEventListener("submit", async function (event) {
     successMsg.style.display = "block";
     contactForm.reset();
   } catch (error) {
-    successMsg.textContent = "Your message could not be sent. Please try again or email mikkyiyk@gmail.com directly.";
+    if (error instanceof TypeError) {
+      successMsg.textContent = "Could not connect to the email service. Open this site through HTTP/HTTPS, check your connection, and confirm the inbox with FormSubmit.";
+    } else {
+      successMsg.textContent = `The email service rejected the message: ${error.message} Please try again or email mikkyiyk@gmail.com directly.`;
+    }
     successMsg.classList.add("delivery-error");
     successMsg.style.display = "block";
   } finally {
