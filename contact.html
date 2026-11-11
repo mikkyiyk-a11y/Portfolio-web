@@ -50,7 +50,7 @@
           <br>
           <!-- My email, phone and location -->
           <ul class="contact-info">
-            <li><strong>Email:</strong> <a href="mailto:youremail@example.com">mikkyiyk@gmail.com</a></li>
+            <li><strong>Email:</strong> <a href="mailto:mikkyiyk@gmail.com">mikkyiyk@gmail.com</a></li>
             <li><strong>Phone:</strong> 07031336844</li>
             <li><strong>Location:</strong> Jos, Nigeria</li>
           </ul>
@@ -65,16 +65,17 @@
              JavaScript (js/contact.js) does the validation instead. -->
         <div class="card">
           <!-- Green success box, hidden until the form is filled correctly -->
-          <div class="success-msg" id="successMsg">
+          <div class="success-msg" id="successMsg" role="status" aria-live="polite">
             Thank you! Your message has been sent.
           </div>
 
-          <form id="contactForm" novalidate>
+          <form id="contactForm" action="https://formsubmit.co/mikkyiyk@gmail.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New message from your portfolio">
 
             <!-- NAME -->
             <div class="form-group">
               <label for="name">Full Name</label>
-              <input type="text" id="name" placeholder="Your full name">
+              <input type="text" id="name" name="name" placeholder="Your full name">
               <!-- JavaScript puts the error text inside this span -->
               <span class="error" id="nameError"></span>
             </div>
@@ -82,21 +83,21 @@
             <!-- EMAIL -->
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="you@example.com">
+              <input type="email" id="email" name="email" placeholder="you@example.com">
               <span class="error" id="emailError"></span>
             </div>
 
             <!-- PHONE -->
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" placeholder="Digits Only">
+              <input type="tel" id="phone" name="phone" placeholder="Digits Only">
               <span class="error" id="phoneError"></span>
             </div>
 
             <!-- MESSAGE -->
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" rows="5" placeholder="Write your message here..."></textarea>
+              <textarea id="message" name="message" rows="5" placeholder="Write your message here..."></textarea>
               <span class="error" id="messageError"></span>
             </div>
 

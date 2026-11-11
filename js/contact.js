@@ -1,8 +1,8 @@
 /* =========================================================
    CONTACT.JS - checks the contact form before it is sent
 
-   PDF REQUIREMENT: "Form validation"
-   PDF REQUIREMENT: "JavaScript validation should ensure:"
+   "Form validation"
+   "JavaScript validation should ensure:"
      - No field is empty                -> see Check 1
      - Email format is valid            -> see Check 2
      - Phone number contains only digits -> see Check 3
@@ -12,7 +12,7 @@
 /* ---------------------------------------------------------
    STEP 1: GRAB THE FORM AND ITS BOXES
 
-   PDF REQUIREMENT: "DOM manipulation"
+   "DOM manipulation"
    --------------------------------------------------------- */
 const contactForm = document.getElementById("contactForm");
 const nameInput = document.getElementById("name");
@@ -20,6 +20,7 @@ const emailInput = document.getElementById("email");
 const phoneInput = document.getElementById("phone");
 const messageInput = document.getElementById("message");
 const successMsg = document.getElementById("successMsg");
+const sendButton = contactForm.querySelector('button[type="submit"]');
 const errorTimers = new WeakMap();
 
 // Allow the user to enter numbers, but show an error for them.
@@ -35,8 +36,8 @@ nameInput.addEventListener("input", function () {
 /* ---------------------------------------------------------
    STEP 2: HELPER FUNCTIONS TO SHOW / CLEAR AN ERROR
 
-   PDF REQUIREMENT: "Functions"
-   PDF REQUIREMENT: "DOM manipulation"
+   "Functions"
+   "DOM manipulation"
    --------------------------------------------------------- */
 
 // Shows a red message under a box and gives the box a red border
@@ -67,9 +68,9 @@ function clearError(input) {
 /* ---------------------------------------------------------
    STEP 3: CHECK THE FORM WHEN "SEND MESSAGE" IS CLICKED
 
-   PDF REQUIREMENT: "Event handling"
+   "Event handling"
    --------------------------------------------------------- */
-contactForm.addEventListener("submit", function (event) {
+contactForm.addEventListener("submit", async function (event) {
   // Stop the page from refreshing
   event.preventDefault();
 
@@ -85,7 +86,7 @@ contactForm.addEventListener("submit", function (event) {
 
 
   // ===== CHECK 1: NO FIELD IS EMPTY =====
-  // PDF REQUIREMENT: "No field is empty"
+  // "No field is empty"
   allInputs.forEach(function (input) {
     if (input.value.trim() === "") {
       showError(input, "This field cannot be empty.");
@@ -97,7 +98,7 @@ contactForm.addEventListener("submit", function (event) {
 
 
   // ===== CHECK 2: EMAIL FORMAT IS VALID =====
-  // PDF REQUIREMENT: "Email format is valid"
+  //  "Email format is valid"
   // This pattern means: some text, then @, then some text, then a dot, then some text
   // e.g. "victor@gmail.com" passes, "victor.gmail" fails
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -119,7 +120,7 @@ contactForm.addEventListener("submit", function (event) {
 
 
   // ===== CHECK 3: PHONE NUMBER CONTAINS ONLY DIGITS =====
-  // PDF REQUIREMENT: "Phone number contains only digits"
+  //  "Phone number contains only digits"
   // This pattern means: only the numbers 0-9, from start (^) to end ($)
   const phonePattern = /^[0-9]+$/;
 
@@ -130,9 +131,45 @@ contactForm.addEventListener("submit", function (event) {
 
 
   // ===== ALL CHECKS PASSED =====
-  // PDF REQUIREMENT: "Dynamic content updates" -> the success box appears
-  if (isValid) {
-    successMsg.style.display = "block";   // show the green box
-    contactForm.reset();                  // empty all the boxes
+  if (!isValid) {
+    return;
+  }
+
+  const originalButtonText = sendButton.textContent;
+  sendButton.disabled = true;
+  sendButton.textContent = "Sending...";
+
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/mikkyiyk@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        message: messageInput.value.trim(),
+        _subject: "New message from your portfolio"
+      })
+    });
+    const result = await response.json();
+
+    if (!response.ok || (result.success !== true && result.success !== "true")) {
+      throw new Error("The email service did not accept the message.");
+    }
+
+    successMsg.textContent = "Thank you! Your message has been sent.";
+    successMsg.classList.remove("delivery-error");
+    successMsg.style.display = "block";
+    contactForm.reset();
+  } catch (error) {
+    successMsg.textContent = "Your message could not be sent. Please try again or email mikkyiyk@gmail.com directly.";
+    successMsg.classList.add("delivery-error");
+    successMsg.style.display = "block";
+  } finally {
+    sendButton.disabled = false;
+    sendButton.textContent = originalButtonText;
   }
 });

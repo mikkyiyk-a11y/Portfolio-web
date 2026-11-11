@@ -1,4 +1,4 @@
-+/* =========================================================
+/* =========================================================
    PLANNER.JS - the Academic Planner
 
    PDF REQUIREMENT: "Academic Planner Page"

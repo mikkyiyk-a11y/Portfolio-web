@@ -656,6 +656,11 @@ textarea.invalid {
   margin-bottom: 18px;
 }
 
+.success-msg.delivery-error {
+  background-color: #f8eaea;
+  color: var(--error);
+}
+
 
 /* =========================================================
    11. FOOTER
