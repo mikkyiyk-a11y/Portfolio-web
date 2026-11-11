@@ -135,11 +135,11 @@ contactForm.addEventListener("submit", async function (event) {
     return;
   }
 
-  // A normal form POST avoids fetch/CORS restrictions on file:// pages.
+  // FormSubmit rejects submissions when the page is opened directly from disk.
   if (window.location.protocol === "file:") {
-    sendButton.disabled = true;
-    sendButton.textContent = "Sending...";
-    contactForm.submit();
+    successMsg.textContent = "FormSubmit requires this page to be opened through a web server. Use Live Server or the hosted website, then try again.";
+    successMsg.classList.add("delivery-error");
+    successMsg.style.display = "block";
     return;
   }
 
@@ -162,10 +162,15 @@ contactForm.addEventListener("submit", async function (event) {
         _subject: "New message from your portfolio"
       })
     });
-    const result = await response.json();
+    let result;
+    try {
+      result = await response.json();
+    } catch {
+      throw new Error(`The email service returned an unreadable response (HTTP ${response.status}).`);
+    }
 
     if (!response.ok || (result.success !== true && result.success !== "true")) {
-      throw new Error("The email service did not accept the message.");
+      throw new Error(result.message || `The email service returned HTTP ${response.status} without accepting the message.`);
     }
 
     successMsg.textContent = "Thank you! Your message has been sent.";
