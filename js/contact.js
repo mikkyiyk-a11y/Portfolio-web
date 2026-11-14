@@ -84,7 +84,7 @@ contactForm.addEventListener("submit", function (event) {
   const allInputs = [nameInput, emailInput, phoneInput, messageInput];
 
 
-  // ===== CHECK 1: NO FIELD IS EMPTY =====
+  //  CHECK 1: NO FIELD IS EMPTY 
   // "No field is empty"
   allInputs.forEach(function (input) {
     if (input.value.trim() === "") {
@@ -99,7 +99,7 @@ contactForm.addEventListener("submit", function (event) {
   // ===== CHECK 2: EMAIL FORMAT IS VALID =====
   //  "Email format is valid"
   // This pattern means: some text, then @, then some text, then a dot, then some text
-  // e.g. "victor@gmail.com" passes, "victor.gmail" fails
+  // e.g. "mikkyiyk@gmail.com" passes, "mikkyiyk.gmail" fails
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   // Only check the format if the box is not empty (Check 1 handles empty)

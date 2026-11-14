@@ -9,9 +9,9 @@
 /* ---------------------------------------------------------
    1. MOBILE MENU BUTTON
 
-   PDF REQUIREMENT: "Event handling"
-   PDF REQUIREMENT: "DOM manipulation"
-   PDF REQUIREMENT: "Mobile-friendly interface"
+    "Event handling"
+   "DOM manipulation"
+   "Mobile-friendly interface"
    --------------------------------------------------------- */
 
 // DOM MANIPULATION: find the ☰ button on the page using its id
@@ -31,7 +31,7 @@ menuBtn.addEventListener("click", function () {
 /* ---------------------------------------------------------
    2. GREETING ON THE HOMEPAGE
 
-   PDF REQUIREMENT: "Dynamic content updates"
+    "Dynamic content updates"
    -> the welcome text changes depending on the time of day
    --------------------------------------------------------- */
 
@@ -43,7 +43,7 @@ if (greeting) {
   // Get the current hour from the computer clock (0 to 23)
   const hour = new Date().getHours();
 
-  // Choose the right words for the time of day
+  // Uses the right greetingwords for the time of the day
   if (hour < 12) {
     greeting.textContent = "Good morning";     // before 12pm
   } else if (hour < 17) {
@@ -57,8 +57,8 @@ if (greeting) {
 /* ---------------------------------------------------------
    3. YEAR IN THE FOOTER
 
-   PDF REQUIREMENT: "DOM manipulation"
-   -> puts this year's number into <span id="year">
+     "DOM manipulation"
+     puts this year's number into <span id="year">
       so you never have to update it by hand
    --------------------------------------------------------- */
 const year = document.getElementById("year");
